@@ -8,6 +8,9 @@ WORKDIR /code
 COPY ./requirements.txt /code/requirements.txt
 
 #
+COPY ./model.pkl /code/model.pkl
+
+#
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 #
