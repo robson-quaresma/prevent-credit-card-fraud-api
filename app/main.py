@@ -20,6 +20,7 @@ class Transaction(BaseModel):
     used_pin_number: float | int
     online_order: float | int
 
+model_path = "pccf_model.pth"
 
 # Load ML model
 with open('model.pkl', 'rb') as f:
@@ -46,9 +47,8 @@ async def root():
 async def ann_predict(transaction: Transaction):
     data = torch.tensor(parse_data(transaction)).float()
     predictor = Predictor()
-    predictor.load_model(PCCFModelSimple)
-    return predictor.make_prediction(data)
-    
+    predictor.load_model(PCCFModelSimple, model_path)
+    return predictor.make_prediction(data)    
 
 
 @app.post('/predict')

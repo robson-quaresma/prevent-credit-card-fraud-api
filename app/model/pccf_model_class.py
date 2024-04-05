@@ -4,7 +4,7 @@ import torch.nn.functional as F
 
 
 class PCCFModelSimple(nn.Module):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
 
         # input
@@ -17,7 +17,7 @@ class PCCFModelSimple(nn.Module):
         # output
         self.output = nn.Linear(30, 1)
 
-    def forward(self, x):
+    def forward(self, x: torch.tensor) -> torch.tensor:
         # input
         x = F.relu( self.input(x) )
         x = F.relu( self.h1(x) )

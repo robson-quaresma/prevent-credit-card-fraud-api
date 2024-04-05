@@ -6,13 +6,13 @@ class Predictor():
         self.model = None
         self.prediction = None
 
-    def load_model(self, model):
+    def load_model(self, model, model_path) -> None:
         # load ANN Model
         self.model = model()
-        self.model.load_state_dict(torch.load('pccf_model.pth'))
+        self.model.load_state_dict(torch.load(model_path))
         self.model.eval()
     
-    def make_prediction(self, data):
+    def make_prediction(self, data: torch.tensor) -> int:
         with torch.no_grad():
             self.prediction = self.model(data)
 
