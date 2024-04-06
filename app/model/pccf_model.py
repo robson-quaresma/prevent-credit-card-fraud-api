@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-class PCCFModelSimple(nn.Module):
+class PCCFModel(nn.Module):
     def __init__(self) -> None:
         super().__init__()
 

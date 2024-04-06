@@ -1,4 +1,3 @@
-__all__ = ["pccf_model_class", "predictor"]
-
-from .predictor import Predictor
-from .pccf_model_class import PCCFModelSimple
+from .pccf_predictor import PCCFPredictor
+from .pccf_model import PCCFModel
+from .lr_predictor import LRPredictor
